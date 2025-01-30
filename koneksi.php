@@ -1,10 +1,6 @@
 <?php
 
-$hostName = "localhost";
-$dbUser = "root";
-$dbPassword = "";
-$dbName = "";
-$conn = mysqli_connect($hostName, $dbUser, $dbPassword, $dbName);
+$conn = mysqli_connect("localhost","root", "", "db_koprasi");
 if (!$conn) {
     die("Something went wrong;");
 }

@@ -20,8 +20,8 @@ if (isset($_SESSION["user"])) {
         if (isset($_POST["login"])) {
            $email = $_POST["email"];
            $password = $_POST["password"];
-            require_once "database.php";
-            $sql = "SELECT * FROM users WHERE email = '$email'";
+            require_once "../koneksi.php";
+            $sql = "SELECT * FROM user WHERE email = '$email'";
             $result = mysqli_query($conn, $sql);
             $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
             if ($user) {
@@ -49,7 +49,7 @@ if (isset($_SESSION["user"])) {
             <input type="submit" value="Login" name="login" class="btn btn-primary">
         </div>
       </form>
-     <div><p>Not registered yet <a href="registration.php">Register Here</a></p></div>
+     <div><p>Not registered yet <a href="register.php">Register Here</a></p></div>
     </div>
 </body>
 </html>
