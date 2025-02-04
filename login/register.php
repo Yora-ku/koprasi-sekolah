@@ -39,7 +39,7 @@ if (isset($_SESSION["user"])) {
            if ($password!==$passwordRepeat) {
             array_push($errors,"Password does not match");
            }
-           require_once "../koneksi.php";
+           require_once "../config/koneksi.php";
            $sql = "SELECT * FROM user WHERE email = '$email'";
            $result = mysqli_query($conn, $sql);
            $rowCount = mysqli_num_rows($result);

@@ -20,7 +20,7 @@ if (isset($_SESSION["user"])) {
         if (isset($_POST["login"])) {
            $email = $_POST["email"];
            $password = $_POST["password"];
-            require_once "../koneksi.php";
+            require_once "../config/koneksi.php";
             $sql = "SELECT * FROM user WHERE email = '$email'";
             $result = mysqli_query($conn, $sql);
             $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -28,7 +28,7 @@ if (isset($_SESSION["user"])) {
                 if (password_verify($password, $user["password"])) {
                     session_start();
                     $_SESSION["user"] = "yes";
-                    header("Location: index.php");
+                    header("Location: ../index.php");
                     die();
                 }else{
                     echo "<div class='alert alert-danger'>Password does not match</div>";
